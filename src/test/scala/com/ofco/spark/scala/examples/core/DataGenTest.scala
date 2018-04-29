@@ -5,7 +5,7 @@ import org.scalatest.{BeforeAndAfter, FunSuite}
 
 class DataGenTest extends FunSuite with BeforeAndAfter {
 
-    test("testMain") {
+    test("main") {
       val output: String = "tmp/output"
       val numberOfkeys: Int = 1000000
       val numPartitions: Int = 100

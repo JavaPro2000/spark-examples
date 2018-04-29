@@ -5,7 +5,7 @@ import org.scalatest.{BeforeAndAfter, FunSuite}
 
 class WordCountTest extends FunSuite with BeforeAndAfter{
 
-  test("testMain") {
+  test("main") {
     val input_file = "data/data.txt"
     val output_dir = "tmp/output"
 

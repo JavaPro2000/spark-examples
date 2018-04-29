@@ -5,7 +5,7 @@ import org.scalatest.{BeforeAndAfter, FunSuite}
 
 class SparkPiTest extends FunSuite with BeforeAndAfter {
 
-  test("testMain") {
+  test("main") {
     val slices: Int = 10
 
     SparkPi.main(Array(slices.toString))

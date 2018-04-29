@@ -7,7 +7,7 @@ import org.apache.commons.io.FileUtils
 import org.apache.commons.lang3.SystemUtils
 
 object SparkTestUtils {
-  def initTestEnv() {
+  def initTestEnv(): Unit = {
     val user_dir = System.getProperty("user.dir").replace('\\', '/')
     val spark_hive_warehouse_dir = "file:///" + user_dir + "/tmp/spark-hive"
 
@@ -16,6 +16,7 @@ object SparkTestUtils {
     sys.props.put("spark.sql.warehouse.dir", spark_hive_warehouse_dir)
     sys.props.put("spark.local.dir", user_dir + "/tmp/spark/tmp")
     sys.props.put("spark.master", "local[*]")
+    sys.props.put("log4j.configuration", "file:///" + user_dir + "/conf/log4j.properties")
 
     initTmpFolder(user_dir)
   }

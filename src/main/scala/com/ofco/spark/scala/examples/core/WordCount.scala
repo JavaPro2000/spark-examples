@@ -5,7 +5,7 @@ import com.ofco.spark.scala.examples.util.HDFSUtils
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.SparkSession
 
-object ScalaWordCount {
+object WordCount {
   def main(args: Array[String]) {
     if (args.length < 2) {
       System.err.println("Usage: <input file> <output file>")

@@ -1,12 +1,11 @@
-package com.ofco.spark.scala.examples.core
+package com.ofco.spark.examples.scala.core
 
-import com.ofco.spark.scala.examples.util.HDFSUtils
-import com.ofco.spark.scala.examples.util.SparkUtils.{init, tryWithResource}
+import com.ofco.spark.examples.scala.util.HDFSUtils
+import com.ofco.spark.examples.scala.util.SparkUtils.{init, tryWithResource}
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.{Dataset, SparkSession}
 
 import scala.util.Random
-
 
 object DataGen {
 
@@ -37,15 +36,15 @@ object DataGen {
 
     import spark.implicits._
 
-    val keysDS: Dataset[Record] = spark.createDataset(keysRDD).cache()
-
-    keysDS.show()
-
-    val count: Long = keysDS.count
-
-    println(s"count => $count")
+    val keysDS: Dataset[Record] = spark.createDataset(keysRDD)
 
     HDFSUtils.deleteFolder(output)
     keysDS.write.csv(output)
+  }
+
+  def run2(spark: SparkSession, output: String, numberOfKeys: Int = 100, numPartitions: Int = 1, recordSize: Int = 1024): Unit = {
+    val keysRDD: RDD[String] = spark.sparkContext.parallelize(1 until numberOfKeys + 1, numPartitions).map(id => id + "," + createString(recordSize))
+    HDFSUtils.deleteFolder(output)
+    keysRDD.saveAsTextFile(output)
   }
 }

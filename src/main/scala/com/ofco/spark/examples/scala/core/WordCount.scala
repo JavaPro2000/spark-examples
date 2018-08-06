@@ -1,7 +1,7 @@
-package com.ofco.spark.scala.examples.core
+package com.ofco.spark.examples.scala.core
 
-import com.ofco.spark.scala.examples.util.SparkUtils.{init, tryWithResource}
-import com.ofco.spark.scala.examples.util.HDFSUtils
+import com.ofco.spark.examples.scala.util.HDFSUtils
+import com.ofco.spark.examples.scala.util.SparkUtils.{init, tryWithResource}
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.SparkSession
 
@@ -22,7 +22,9 @@ object WordCount {
 
   def run(spark: SparkSession, input: String, output: String): Unit = {
     val lines: RDD[String] = read(spark, input)
+
     val counts: RDD[(String, Long)] = process(lines)
+
     write(counts, output)
   }
 

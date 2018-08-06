@@ -1,6 +1,6 @@
-package com.ofco.spark.scala.examples.core
+package com.ofco.spark.examples.scala.core
 
-import com.ofco.spark.scala.examples.test.SparkTestUtils
+import com.ofco.spark.examples.scala.test.SparkTestUtils
 import org.scalatest.{BeforeAndAfter, FunSuite}
 
 class SparkPiTest extends FunSuite with BeforeAndAfter {

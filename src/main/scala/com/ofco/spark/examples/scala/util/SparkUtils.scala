@@ -1,4 +1,4 @@
-package com.ofco.spark.scala.examples.util
+package com.ofco.spark.examples.scala.util
 
 import org.apache.spark.sql.SparkSession
 
